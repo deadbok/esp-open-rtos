@@ -147,7 +147,7 @@ static void IRAM set_spi0_divisor(uint32_t divisor) {
 }
 
 // .text+0x148
-void IRAM sdk_user_fatal_exception_handler(void) {
+void __attribute__((weak)) IRAM sdk_user_fatal_exception_handler(void) {
     if (!sdk_NMIIrqIsOn) {
         vPortEnterCritical();
         do {
